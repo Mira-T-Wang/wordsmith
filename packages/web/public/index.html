@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WordSmith — Welcome back</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="split">
+    <section class="panel panel--login">
+      <div class="login-inner">
+        <div class="brand">
+          <span class="brand__mark" aria-hidden="true">W</span>
+          <span class="brand__name">WordSmith</span>
+        </div>
+
+        <header class="login-head">
+          <h1 class="login-title">Welcome back,<br />wordsmith.</h1>
+          <p class="login-sub" id="streak-line">Your streak is waiting. Don't break the chain.</p>
+        </header>
+
+        <div class="form" novalidate>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" autocomplete="email" placeholder="maya@wordsmith.app" />
+            <p class="field__error" data-error-for="email"></p>
+          </div>
+
+          <div class="field">
+            <div class="field__labelrow">
+              <label for="password">Password</label>
+              <button type="button" class="link link--ghost" id="toggle-pw" aria-pressed="false">Show</button>
+            </div>
+            <input id="password" type="password" autocomplete="current-password" placeholder="••••••••••••" />
+            <p class="field__error" data-error-for="password"></p>
+          </div>
+
+          <div class="form-row">
+            <label class="check">
+              <input type="checkbox" id="remember" checked />
+              <span>Keep me typing</span>
+            </label>
+            <button type="button" class="link" id="forgot">Forgot password?</button>
+          </div>
+
+          <button type="button" class="btn btn--primary" id="submit">
+            <span>Continue the streak</span>
+            <span class="btn__arrow" aria-hidden="true">→</span>
+          </button>
+
+          <div class="divider"><span>or</span></div>
+
+          <div class="oauth">
+            <button type="button" class="btn btn--oauth" data-provider="google">
+              <span class="oauth__glyph" aria-hidden="true">G</span> Google
+            </button>
+            <button type="button" class="btn btn--oauth" data-provider="apple">
+              <span class="oauth__glyph" aria-hidden="true"></span> Apple
+            </button>
+          </div>
+
+          <p class="signup">New to WordSmith? <button type="button" class="link link--accent" id="signup">Start free</button></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel panel--proof">
+      <div class="proof-card">
+        <header class="proof-head">
+          <h2 class="proof-title">Fastest learners race<br />the same words you do.</h2>
+          <p class="proof-sub">Type faster and more accurately to climb the board — speed and recall both count toward your rank.</p>
+        </header>
+
+        <div class="streak-badge">
+          <span class="streak-badge__icon" aria-hidden="true">🔥</span>
+          <div class="streak-badge__main">
+            <strong id="streak-days">— days</strong>
+            <span>Current streak</span>
+          </div>
+          <div class="streak-badge__due">
+            <strong id="cards-due">—</strong>
+            <span>cards due</span>
+          </div>
+        </div>
+
+        <div class="board">
+          <div class="board__head">
+            <span>Leaderboard</span>
+            <span class="board__filter">From · this week</span>
+          </div>
+          <ul class="board__list" id="board-list"></ul>
+        </div>
+
+        <div class="tiers" id="tiers"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
