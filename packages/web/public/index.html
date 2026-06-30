@@ -69,33 +69,11 @@
     </section>
 
     <section class="panel panel--proof">
-      <div class="proof-card">
-        <header class="proof-head">
-          <h2 class="proof-title">Fastest learners race<br />the same words you do.</h2>
-          <p class="proof-sub">Type faster and more accurately to climb the board — speed and recall both count toward your rank.</p>
-        </header>
-
-        <div class="streak-badge">
-          <span class="streak-badge__icon" aria-hidden="true">🔥</span>
-          <div class="streak-badge__main">
-            <strong id="streak-days">— days</strong>
-            <span>Current streak</span>
-          </div>
-          <div class="streak-badge__due">
-            <strong id="cards-due">—</strong>
-            <span>cards due</span>
-          </div>
+      <div class="proof-card" id="showcase" aria-roledescription="carousel" aria-label="What WordSmith does">
+        <div class="slideshow-viewport">
+          <div class="slides" id="slides"></div>
         </div>
-
-        <div class="board">
-          <div class="board__head">
-            <span>Leaderboard</span>
-            <span class="board__filter">From · this week</span>
-          </div>
-          <ul class="board__list" id="board-list"></ul>
-        </div>
-
-        <div class="tiers" id="tiers"></div>
+        <div class="dots" id="dots" role="tablist" aria-label="Choose slide"></div>
       </div>
     </section>
   </main>
