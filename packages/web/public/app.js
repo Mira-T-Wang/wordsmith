@@ -6,6 +6,23 @@ const state = {
 document.getElementById("streak-line").textContent =
   `Your ${state.streakDays}-day streak is waiting. Don't break the chain.`;
 
+// View switching: show one auth view, hide the others
+const views = {
+  login: document.getElementById("view-login"),
+  signup: document.getElementById("view-signup"),
+  forgot: document.getElementById("view-forgot"),
+};
+
+function showView(name) {
+  Object.values(views).forEach((v) => v.classList.add("hidden"));
+  views[name].classList.remove("hidden");
+}
+
+document.getElementById("signup").addEventListener("click", () => showView("signup"));
+document.getElementById("forgot").addEventListener("click", () => showView("forgot"));
+document.getElementById("to-login").addEventListener("click", () => showView("login"));
+document.getElementById("to-login-2").addEventListener("click", () => showView("login"));
+
 // ---- Showcase slides
 const slides = [
   {
@@ -191,8 +208,50 @@ function handleOAuth(provider) { console.log("[stub] handleOAuth", provider); al
 
 document.getElementById("submit").addEventListener("click", handleLogin);
 document.querySelectorAll("[data-provider]").forEach((b) => b.addEventListener("click", () => handleOAuth(b.dataset.provider)));
-document.getElementById("forgot").addEventListener("click", () => console.log("[stub] forgot password"));
-document.getElementById("signup").addEventListener("click", () => console.log("[stub] start free / signup"));
 [emailEl, pwEl].forEach((el) => el.addEventListener("keydown", (e) => { if (e.key === "Enter") handleLogin(); }));
+
+// Signup form
+const suName = document.getElementById("su-name");
+const suEmail = document.getElementById("su-email");
+const suPw = document.getElementById("su-password");
+
+function validateSignup() {
+  let ok = true;
+  if (suName.value.trim().length < 2) { setError("su-name", "Tell us your name."); ok = false; } else setError("su-name", "");
+  if (!validEmail(suEmail.value)) { setError("su-email", "Enter a valid email address."); ok = false; } else setError("su-email", "");
+  if (suPw.value.length < 8) { setError("su-password", "Password must be at least 8 characters."); ok = false; } else setError("su-password", "");
+  return ok;
+}
+
+function handleSignup() {
+  if (!validateSignup()) return;
+  console.log("[stub] handleSignup", { name: suName.value.trim(), email: suEmail.value.trim() });
+  alert("Signup is stubbed for now — form is valid. Real account creation comes later.");
+}
+
+document.getElementById("su-submit").addEventListener("click", handleSignup);
+document.getElementById("su-toggle-pw").addEventListener("click", (e) => {
+  const btn = e.currentTarget;
+  const showing = suPw.type === "text";
+  suPw.type = showing ? "password" : "text";
+  btn.textContent = showing ? "Show" : "Hide";
+  btn.setAttribute("aria-pressed", String(!showing));
+});
+
+[suName, suEmail, suPw].forEach((el) =>
+  el.addEventListener("input", () => { if (el.classList.contains("is-invalid")) setError(el.id, ""); }));
+
+// Forgot-password form
+const fpEmail = document.getElementById("fp-email");
+
+function handleForgot() {
+  if (!validEmail(fpEmail.value)) { setError("fp-email", "Enter a valid email address."); return; }
+  setError("fp-email", "");
+  console.log("[stub] handleForgot", { email: fpEmail.value.trim() });
+  alert("Reset link is stubbed for now — form is valid. Real email sending comes later.");
+}
+
+document.getElementById("fp-submit").addEventListener("click", handleForgot);
+fpEmail.addEventListener("input", () => { if (fpEmail.classList.contains("is-invalid")) setError("fp-email", ""); });
 
 initShowcase();

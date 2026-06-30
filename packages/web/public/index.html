@@ -18,52 +18,123 @@
           <span class="brand__name">WordSmith</span>
         </div>
 
-        <header class="login-head">
-          <h1 class="login-title">Welcome back,<br />wordsmith.</h1>
-          <p class="login-sub" id="streak-line">Your streak is waiting. Don't break the chain.</p>
-        </header>
+        <div id="view-login" class="auth-view">
+          <header class="login-head">
+            <h1 class="login-title">Welcome back,<br />wordsmith.</h1>
+            <p class="login-sub" id="streak-line">Your streak is waiting. Don't break the chain.</p>
+          </header>
 
-        <div class="form" novalidate>
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" type="email" autocomplete="email" placeholder="maya@wordsmith.app" />
-            <p class="field__error" data-error-for="email"></p>
-          </div>
-
-          <div class="field">
-            <div class="field__labelrow">
-              <label for="password">Password</label>
-              <button type="button" class="link link--ghost" id="toggle-pw" aria-pressed="false">Show</button>
+          <div class="form" novalidate>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" autocomplete="email" placeholder="maya@wordsmith.app" />
+              <p class="field__error" data-error-for="email"></p>
             </div>
-            <input id="password" type="password" autocomplete="current-password" placeholder="••••••••••••" />
-            <p class="field__error" data-error-for="password"></p>
-          </div>
 
-          <div class="form-row">
-            <label class="check">
-              <input type="checkbox" id="remember" checked />
-              <span>Keep me typing</span>
-            </label>
-            <button type="button" class="link" id="forgot">Forgot password?</button>
-          </div>
+            <div class="field">
+              <div class="field__labelrow">
+                <label for="password">Password</label>
+                <button type="button" class="link link--ghost" id="toggle-pw" aria-pressed="false">Show</button>
+              </div>
+              <input id="password" type="password" autocomplete="current-password" placeholder="••••••••••••" />
+              <p class="field__error" data-error-for="password"></p>
+            </div>
 
-          <button type="button" class="btn btn--primary" id="submit">
-            <span>Continue the streak</span>
-            <span class="btn__arrow" aria-hidden="true">→</span>
-          </button>
+            <div class="form-row">
+              <label class="check">
+                <input type="checkbox" id="remember" checked />
+                <span>Keep me typing</span>
+              </label>
+              <button type="button" class="link" id="forgot">Forgot password?</button>
+            </div>
 
-          <div class="divider"><span>or</span></div>
-
-          <div class="oauth">
-            <button type="button" class="btn btn--oauth" data-provider="google">
-              <span class="oauth__glyph" aria-hidden="true">G</span> Google
+            <button type="button" class="btn btn--primary" id="submit">
+              <span>Continue the streak</span>
+              <span class="btn__arrow" aria-hidden="true">→</span>
             </button>
-            <button type="button" class="btn btn--oauth" data-provider="apple">
-              <span class="oauth__glyph" aria-hidden="true"></span> Apple
-            </button>
-          </div>
 
-          <p class="signup">New to WordSmith? <button type="button" class="link link--accent" id="signup">Start free</button></p>
+            <div class="divider"><span>or</span></div>
+
+            <div class="oauth">
+              <button type="button" class="btn btn--oauth" data-provider="google">
+                <span class="oauth__glyph" aria-hidden="true">G</span> Google
+              </button>
+              <button type="button" class="btn btn--oauth" data-provider="apple">
+                <span class="oauth__glyph" aria-hidden="true"></span> Apple
+              </button>
+            </div>
+
+            <p class="signup">New to WordSmith? <button type="button" class="link link--accent" id="signup">Start free</button></p>
+          </div>
+        </div>
+
+        <div id="view-signup" class="auth-view hidden">
+          <header class="login-head">
+            <h1 class="login-title">Start free,<br />wordsmith.</h1>
+            <p class="login-sub">Build your first streak today. No card required.</p>
+          </header>
+
+          <div class="form" novalidate>
+            <div class="field">
+              <label for="su-name">Name</label>
+              <input id="su-name" type="text" autocomplete="name" placeholder="Maya" />
+              <p class="field__error" data-error-for="su-name"></p>
+            </div>
+
+            <div class="field">
+              <label for="su-email">Email</label>
+              <input id="su-email" type="email" autocomplete="email" placeholder="maya@wordsmith.app" />
+              <p class="field__error" data-error-for="su-email"></p>
+            </div>
+
+            <div class="field">
+              <div class="field__labelrow">
+                <label for="su-password">Password</label>
+                <button type="button" class="link link--ghost" id="su-toggle-pw" aria-pressed="false">Show</button>
+              </div>
+              <input id="su-password" type="password" autocomplete="new-password" placeholder="At least 8 characters" />
+              <p class="field__error" data-error-for="su-password"></p>
+            </div>
+
+            <button type="button" class="btn btn--primary" id="su-submit" style="margin-top:0.5rem;">
+              <span>Create account</span>
+              <span class="btn__arrow" aria-hidden="true">→</span>
+            </button>
+
+            <div class="divider"><span>or</span></div>
+
+            <div class="oauth">
+              <button type="button" class="btn btn--oauth" data-provider="google">
+                <span class="oauth__glyph" aria-hidden="true">G</span> Google
+              </button>
+              <button type="button" class="btn btn--oauth" data-provider="apple">
+                <span class="oauth__glyph" aria-hidden="true"></span> Apple
+              </button>
+            </div>
+
+            <p class="signup">Already have an account? <button type="button" class="link link--accent" id="to-login">Log in</button></p>
+          </div>
+        </div>
+        <div id="view-forgot" class="auth-view hidden">
+          <header class="login-head">
+            <h1 class="login-title">Reset your<br />password.</h1>
+            <p class="login-sub">Enter your email and we'll send you a reset link.</p>
+          </header>
+
+          <div class="form" novalidate>
+            <div class="field">
+              <label for="fp-email">Email</label>
+              <input id="fp-email" type="email" autocomplete="email" placeholder="maya@wordsmith.app" />
+              <p class="field__error" data-error-for="fp-email"></p>
+            </div>
+
+            <button type="button" class="btn btn--primary" id="fp-submit" style="margin-top:0.5rem;">
+              <span>Send reset link</span>
+              <span class="btn__arrow" aria-hidden="true">→</span>
+            </button>
+
+            <p class="signup">Remembered it? <button type="button" class="link link--accent" id="to-login-2">Back to login</button></p>
+          </div>
         </div>
       </div>
     </section>

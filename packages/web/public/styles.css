@@ -274,3 +274,5 @@ body {
   * { transition: none !important; }
   .slides { transition: none; }
 }
+
+.hidden { display: none; }
