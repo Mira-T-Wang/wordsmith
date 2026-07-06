@@ -18,4 +18,4 @@ for (const c of cases) {
   if (ok) passed++;
   console.log(`${ok ? "PASS" : "FAIL"}  ${c.note.padEnd(28)} got ${got.toFixed(3)}, expected ${c.expect}`);
 }
-console.log(`\n${passed}/${cases.length} passed`);
+console.log(`\n${passed}/${cases.length} passed`);  

@@ -16,4 +16,4 @@ function scoreFluency(typingMs, wordLength, baselineCps = 4) {
   return Math.max(0, Math.min(1, score));
 }
 
-module.exports = { scoreFluency };
+module.exports = { scoreFluency };  
