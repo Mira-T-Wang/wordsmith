@@ -1,0 +1,11 @@
+{
+  "name": "@wordsmith/api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "HTTP boundary and data layer. Talks to MongoDB and core.",
+  "main": "src/index.js",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "mongoose": "^9.7.4"
+  }
+}
