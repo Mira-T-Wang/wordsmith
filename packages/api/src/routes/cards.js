@@ -57,4 +57,22 @@ router.post("/:cardId/review", async (req, res) => {
   }
 });
 
+router.post("/", async (req, res) => {
+  try {
+    const { userId, wordId } = req.body;
+
+    if (!userId || !wordId) {
+      return res.status(400).json({ error: "userId and wordId are required" });
+    }
+
+    const card = await createCard(userId, wordId);
+    res.status(201).json(card);
+  } catch (err) {
+    if (err.code === 11000) {
+      return res.status(409).json({ error: "card already exists for this user and word" });
+    }
+    res.status(500).json({ error: err.message });
+  }
+});
+
 module.exports = router;
