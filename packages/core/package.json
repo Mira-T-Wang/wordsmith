@@ -1,0 +1,7 @@
+﻿{
+  "name": "@wordsmith/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pure logic: scoring engine and SM-2 scheduler. No dependencies.",
+  "main": "src/index.js"
+}
